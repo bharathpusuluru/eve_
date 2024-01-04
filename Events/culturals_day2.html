@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+
+        }
+
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        @media (min-width: 768px) {
+            .modal-content {
+                width: 50%;
+            }
+        }
+
+        #card1 {
+            height: 150px;
+            /* Adjust this value as needed */
+        }
+
+        .card-content {
+            background-color: black;
+            /* Set background to black */
+            color: white;
+            /* Set text color to white */
+
+            width: calc(100% - 6rem);
+
+        }
+
+        .card-content .font-bold {
+            color: white;
+            /* Ensure the bold text is also white */
+        }
+    </style>
+</head>
+
+<body class="dark:bg-black">
+    <!--Nav bar starting-->
+    <nav class="bg-black border-gray-200 dark:bg-black">
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+            <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="shore_logo.png" class="h-8" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Shore'24</span>
+            </a>
+            <div class="flex items-center space-x-6 rtl:space-x-reverse">
+            </div>
+        </div>
+    </nav>
+
+
+
+    <!--Nav bar Ending-->
+    <!--Buttons Starting-->
+
+    <div class="dark flex justify-center space-x-2 dark:bg-black">
+        <div id="new-button-1">
+            <button id="day-1-button"
+                class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-small text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                <span
+                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                    DAY-1
+                </span>
+            </button>
+        </div>
+
+        <div id="new-button-2">
+            <button id="day-2-button"
+                class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                <span
+                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                    DAY-2
+                </span>
+            </button>
+        </div>
+
+        <div id="new-button-3">
+            <button id="day-3-button"
+                class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800">
+                <span
+                    class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                    DAY-3
+                </span>
+            </button>
+        </div>
+    </div>
+    <!--Buttons ENding-->
+
+    <!--@nd nav bar Starting-->
+    <nav class="sticky top-0 bg-gray-50 dark:bg-black z-50">
+        <div class="max-w-screen-xl px-4 py-3 mx-auto flex justify-center">
+            <div class="flex items-center">
+                <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+                    <li>
+                        <a href="culturals_day2.html"
+                            class="text-gray-900 dark:text-white hover:underline">Culturals</a>
+                    </li>
+                    <li>
+                        <a href="sports_day2.html" class="text-gray-900 dark:text-white hover:underline">Sports</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-gray-900 dark:text-white hover:underline">Minor Events</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--@nd nav bar Ending-->
+    <div class="flex h-40 w-full flex-row items-center justify-center">
+        <button
+            class="animate-border inline-block rounded-md bg-white bg-gradient-to-r from-red-500 via-purple-500 to-blue-500 bg-[length:400%_400%] p-1">
+            <span class="block rounded-md bg-slate-900 px-5 py-3 font-bold text-white">DAY-2 CULTURALS</span>
+        </button>
+    </div>
+    <!--Time line Starting-->
+    <div style="margin: 2rem;"
+        class=" relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+
+        <!-- Rigth Card -->
+
+        <div class="card-class relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active cursor-pointer"
+        id="card9" data-date-time="2024-12-29T07:00:00">
+        <!-- Icon -->
+        <div
+            class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
+                <path fill-rule="nonzero"
+                    d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            </svg>
+        </div>
+        <!-- Card Content -->
+        <div
+            class="card-content w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-black text-white p-4 rounded border border-slate-200 shadow">
+            <div class="flex items-center justify-between space-x-2 mb-1">
+                <div class="font-bold text-white">
+                    <div>Event Name: <span class="font-normal">Hackathon (48 hours)</span></div>
+                    <div>Venue: <span class="font-normal">ICT Bhavan classrooms</span></div>
+                    <div>Time: <span class="font-normal">48 hours</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-class relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active cursor-pointer mt-4"
+        id="card10" data-date-time="2024-12-29T07:00:00">
+        <!-- Icon -->
+        <div
+            class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
+                <path fill-rule="nonzero"
+                    d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            </svg>
+        </div>
+        <!-- Card Content -->
+        <div
+            class="card-content w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-black text-white p-4 rounded border border-slate-200 shadow">
+            <div class="flex items-center justify-between space-x-2 mb-1">
+                <div class="font-bold text-slate-900">
+                    <div>Event Name: <span class="font-normal">Shore Talks: An inspirational dialouge with
+                            Sadhguru</span></div>
+                    <div>Venue: <span class="font-normal">Yellapragada Auditorium</span></div>
+                    <div>Time: <span class="font-normal">9:00 – 11:00 AM</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="card-class relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active cursor-pointer"
+        id="card11" data-date-time="2024-12-29T07:00:00">
+        <!-- Icon -->
+        <div
+            class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
+                <path fill-rule="nonzero"
+                    d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            </svg>
+        </div>
+        <!-- Card Content -->
+        <div
+            class="card-content w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-black text-white p-4 rounded border border-slate-200 shadow">
+            <div class="flex items-center justify-between space-x-2 mb-1">
+                <div class="font-bold text-white">
+                    <div>Event Name: <span class="font-normal">Mental Wellness Workshop</span></div>
+                    <div>Venue: <span class="font-normal">Shivaji Auditorium</span></div>
+                    <div>Time: <span class="font-normal">11:30 AM – 01:00 PM</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-class relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active cursor-pointer mt-4"
+        id="card12" data-date-time="2024-12-29T07:00:00">
+        <!-- Icon -->
+        <div
+            class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
+                <path fill-rule="nonzero"
+                    d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            </svg>
+        </div>
+        <!-- Card Content -->
+        <div
+            class="card-content w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-black text-white p-4 rounded border border-slate-200 shadow">
+            <div class="flex items-center justify-between space-x-2 mb-1">
+                <div class="font-bold text-slate-900">
+                    <div>Event Name: <span class="font-normal">Nukkad Naatak</span></div>
+                    <div>Venue: <span class="font-normal">Coke Station Road</span></div>
+                    <div>Time: <span class="font-normal">9:00 – 11:00 AM</span></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="card-class relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active cursor-pointer"
+        id="card13" data-date-time="2024-12-29T07:00:00">
+        <!-- Icon -->
+        <div
+            class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
+                <path fill-rule="nonzero"
+                    d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            </svg>
+        </div>
+        <!-- Card Content -->
+        <div
+            class="card-content w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-black text-white p-4 rounded border border-slate-200 shadow">
+            <div class="flex items-center justify-between space-x-2 mb-1">
+                <div class="font-bold text-white">
+                    <div>Event Name: <span class="font-normal">Dance Competition</span></div>
+                    <div>Venue: <span class="font-normal">Open Audi</span></div>
+                    <div>Time: <span class="font-normal">3:00 – 5:00 PM</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-class relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active cursor-pointer mt-4"
+        id="card14" data-date-time="2024-12-29T07:00:00">
+        <!-- Icon -->
+        <div
+            class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-emerald-500 text-slate-500 group-[.is-active]:text-emerald-50 shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="12" height="10">
+                <path fill-rule="nonzero"
+                    d="M10.422 1.257 4.655 7.025 2.553 4.923A.916.916 0 0 0 1.257 6.22l2.75 2.75a.916.916 0 0 0 1.296 0l6.415-6.416a.916.916 0 0 0-1.296-1.296Z" />
+            </svg>
+        </div>
+        <!-- Card Content -->
+        <div
+            class="card-content w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-black text-white p-4 rounded border border-slate-200 shadow">
+            <div class="flex items-center justify-between space-x-2 mb-1">
+                <div class="font-bold text-slate-900">
+                    <div>Event Name: <span class="font-normal">EDM (Electronic,Dance & Music) by celebrity artist</span></div>
+                    <div>Venue: <span class="font-normal">Dental Parking</span></div>
+                    <div>Time: <span class="font-normal">5:30 – 8:30 PM</span></div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div id="myModal" class="modal z-50">
+        <div class="modal-content p-5 rounded-lg">
+            <span class="close text-2xl font-bold float-right cursor-pointer">&times;</span>
+            <img id="modalImage" src="" alt="Card Image" class="w-full md:w-1/2 lg:w-1/3 mx-auto">
+            <p>Some text in the Modal...</p>
+            <div id="new-card-2" class="flex justify-end"> <!-- Card instead of button -->
+                <div
+                    class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden rounded-lg group bg-gradient-to-br from-pink-500 to-orange-400 group-hover:from-pink-500 group-hover:to-orange-400 hover:text-white dark:text-white">
+                    <div
+                        class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md">
+                        <p> Card text here </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+    <!--Time line Ending -->
+    <script>
+        var modal = document.getElementById("myModal");
+        var modalContent = document.querySelector(".modal-content p"); // Assuming the content is in a <p> tag
+        var card1 = document.getElementById("card9");
+        var card2 = document.getElementById("card10");
+        var card3 = document.getElementById("card11");
+        var card4 = document.getElementById("card12");
+        var card5 = document.getElementById("card13");
+        var card6 = document.getElementById("card14");
+       
+
+
+        var span = document.getElementsByClassName("close")[0];
+
+        var cardContents = {
+            card9: {
+                title: "Description",
+                text: "A hackathon, also known as a codefest, is a social coding event that brings computer programmers and other interested people together to improve upon or build a new software program. This shall continue for 48 hours. ",
+                img: "shore_logo.png",
+                buttonText: "Venue: ICT Bhavan Classrooms\nTime:- 48 hours"
+            },
+
+            card10: {
+                title: "Description",
+                text: "GITAM's Shore Fest embarks on an intellectual journey on its second day with an event that promises to enlighten and inspire: Shore Talks. Sadhguru's profound wisdom, insightful perspectives, and abilityto ignite transformative  conversations make him an ideal luminary for Shore Talks.His multifaceted expertise spanning spirituality, inner well- being, sustainable living, and societal evolution ensures a riveting discourse that will captivate minds and hearts alike. ",
+                img: "shore_logo.png",
+                buttonText: "Venue: Yellapragada Auditorium\nTime:- 9:00 AM - 11:00 AM"
+            },
+
+            card11: {
+                title: "Description",
+                text: "Designed to promote and enhance mental well-being by providing participants with tools, resources, and strategies to manage stress, improve emotional resilience, and foster a positive mindset. ",
+                img: "shore_logo.png",
+                buttonText: "Venue: Shivaji Auditorium\nTime:- 11:30 AM - 1:00 PM"
+            },
+
+            card12: {
+                title: "Description",
+                text: "Form of theatrical performance that takes place in public spaces, particularly on streets or open areas, rather than on a traditional stage. Nukkad Natak is a popular medium for conveying social messages, raising awareness about important issues, and entertaining the public. ",
+                img: "shore_logo.png",
+                buttonText: "Venue: Coke Station Road\nTime:- 2:00 PM - 4:00 PM"
+            },
+
+            card13: {
+                title: "Description",
+                text: "A battle between different university teams for both dance and music. ",
+                img: "shore_logo.png",
+                buttonText: "Venue: Open Audi\nTime:- 3:00 PM – 5:00 PM"
+            },
+
+            card14: {
+                title: "Description",
+                text: "As the day gracefully transitions into the night at GITAM's Shore Fest, participants pulsate to the beats of the Sunburn DJ Night— an electrifying and euphoric celebration that marks the culmination of Day 2 in an unforgettable manner. Sunburn DJ Night at Shore Fest is not just a music event; it's an experience— a euphoric celebration of life, music, and the shared passion for dance and rhythm. ",
+                img: "shore_logo.png",
+                buttonText: "Venue: Dental Parking\nTime:- 5:30 PM - 8:30 PM"
+            },
+
+
+        };
+
+        function updateModalContent(cardId) {
+            var content = cardContents[cardId];
+            modalContent.innerHTML = "<strong>" + content.title + "</strong><br>" + content.text;
+        }
+
+        card9.onclick = function () {
+            updateModalContent("card9");
+            modal.style.display = "block";
+        }
+        card10.onclick = function () {
+            updateModalContent("card10");
+            modal.style.display = "block";
+        }
+        card11.onclick = function () {
+            updateModalContent("card11");
+            modal.style.display = "block";
+        }
+        card12.onclick = function () {
+            updateModalContent("card12");
+            modal.style.display = "block";
+        }
+        card13.onclick = function () {
+            updateModalContent("card13");
+            modal.style.display = "block";
+        }
+        card14.onclick = function () {
+            updateModalContent("card14");
+            modal.style.display = "block";
+        }
+
+
+
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        function updateModalContent(cardId) {
+            var content = cardContents[cardId];
+            modalContent.innerHTML = "<strong>" + content.title + "</strong><br>" + content.text;
+            document.getElementById("modalImage").src = content.img; // Update image source
+
+            // Update card text instead of button text
+            var cardTextElement = document.querySelector("#new-card-2 p");
+            if (cardTextElement) {
+                cardTextElement.innerHTML = content.buttonText.replace(/\n/g, '<br>'); // Assuming buttonText has the card's text
+            } else {
+                console.error("Card text element not found");
+            }
+        }
+        span.onclick = function () {
+            console.log("Close button clicked"); // Debug line
+            modal.style.display = "none";
+        };
+        span.onclick = function (event) {
+            event.stopPropagation();
+            modal.style.display = "none";
+        };
+
+
+
+        // svg script 
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select all cards by the common class 'card-class'
+            var cards = document.querySelectorAll(".card-class");
+
+            cards.forEach(function (card) {
+                var cardDateTime = card.getAttribute("data-date-time");
+                var cardDateTimeParsed = new Date(cardDateTime);
+                var svgIcon = card.querySelector("svg");
+
+                // Function to update the visibility of the SVG for each card
+                function updateSvgVisibility() {
+                    var currentTime = new Date();
+                    // Check if the current time matches the time specified in the card
+                    if (currentTime.getHours() === cardDateTimeParsed.getHours() &&
+                        currentTime.getMinutes() === cardDateTimeParsed.getMinutes() &&
+                        currentTime.getDate() === cardDateTimeParsed.getDate() &&
+                        currentTime.getMonth() === cardDateTimeParsed.getMonth() &&
+                        currentTime.getFullYear() === cardDateTimeParsed.getFullYear()) {
+                        svgIcon.style.display = 'block';
+                    } else {
+                        svgIcon.style.display = 'none';
+                    }
+                }
+
+                // Initial check
+                updateSvgVisibility();
+
+                // Check every minute (60000 milliseconds)
+                setInterval(updateSvgVisibility, 60000);
+            });
+        });
+        window.onload = function () {
+            // Get the current date and time
+            const now = new Date();
+
+            // Find all cards
+            const cards = document.querySelectorAll('.card-class');
+            let closestCard = null;
+            let smallestDiff = Infinity;
+
+            // Iterate over the cards to find the closest one
+            cards.forEach(card => {
+                const cardDateTime = new Date(card.getAttribute('data-date-time'));
+                const diff = Math.abs(now - cardDateTime);
+
+                if (diff < smallestDiff) {
+                    smallestDiff = diff;
+                    closestCard = card;
+                }
+            });
+
+            // If a closest card is found, scroll to it
+            if (closestCard) {
+                closestCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        };
+        // buttonss 
+        document.getElementById('day-3-button').addEventListener('click', function () {
+            window.location.href = 'culturals_day3.html'; // Replace with your target page URL
+        });
+        document.getElementById('day-2-button').addEventListener('click', function () {
+            window.location.href = 'culturals_day2.html'; // Replace with your target page URL
+        });
+        document.getElementById('day-1-button').addEventListener('click', function () {
+            window.location.href = 'culturals_day1.html'; // Replace with your target page URL
+        });
+
+    </script>
+
+
+</body>
+
+</html>
